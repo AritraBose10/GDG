@@ -33,7 +33,7 @@ const Page = () => {
 
         {/* Resized logo in the top left corner */}
         <div className="absolute top-13 left-14.5 p-3 sm:top-0 sm:left-0">
-          <Image src={gdg2} height={90} width={170} alt="gdg2" />
+          <Image unoptimized src={gdg2} height={90} width={170} alt="gdg2" />
         </div>
 
         {/* Centered content */}
@@ -49,7 +49,7 @@ const Page = () => {
         >
           {/* Resized logo in the top right corner */}
           <div className="absolute bottom-14 left-14.5 p-3 sm:top-0 sm:right-0">
-            <Image src={tiu} height={60} width={100} alt="tiu" />
+            <Image unoptimized src={tiu} height={60} width={100} alt="tiu" />
           </div>
 
           <div className="text-3xl md:text-5xl font-bold dark:text-white text-center">
