@@ -394,3 +394,46 @@ select option {
 select option:hover {
   background-color: #1c2b36; /* Slightly lighter background on hover */
 }
+.submit-btn {
+  background-color: #0052cc; /* Default button color */
+  color: white;
+  border: none;
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  width: 100%;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.submit-btn.loading {
+  background-color: #7d7d7d; /* Grey color for loading */
+  pointer-events: none; /* Disable button clicks when loading */
+}
+
+.loader {
+  border: 4px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  border-top: 4px solid white;
+  width: 24px;
+  height: 24px;
+  animation: spin 1s linear infinite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

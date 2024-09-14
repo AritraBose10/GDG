@@ -20,7 +20,11 @@ const Page = () => {
   const [formData, setFormData] = useState({});
   const [portfolioLink, setPortfolioLink] = useState("");
   const router = useRouter();
+  const [isLoading, setIsLoading] = useState(false);
+
   const onSubmit = async (data) => {
+    setIsLoading(true); // Set loading state to true
+
     try {
       const response = await fetch(
         "https://gdg-reg.onrender.com/check-existing",
@@ -44,6 +48,7 @@ const Page = () => {
           toast.error("This contact number is already registered.");
         if (result.collegeIdExists)
           toast.error("This College ID is already registered.");
+        setIsLoading(false); // Reset loading state
         return;
       }
 
@@ -55,6 +60,7 @@ const Page = () => {
       setShowConfirmation(true);
     } catch (error) {
       toast.error("An error occurred. Please try again.");
+      setIsLoading(false); // Reset loading state
     }
   };
 
@@ -69,12 +75,14 @@ const Page = () => {
         toast.success("Registration successful!");
         setShowConfirmation(false);
         resetForm();
+        setIsLoading(false); // Reset loading state
         setTimeout(() => {
           router.push("/core/success");
-        }, 1500);
+        }, 1000);
       })
       .catch(() => {
         toast.error("An error occurred. Please try again.");
+        setIsLoading(false); // Reset loading state
       });
   };
 
@@ -83,9 +91,13 @@ const Page = () => {
     setPortfolioLink("");
     setFormData({});
     setShowConfirmation(false);
+    setIsLoading(false);
     reset();
   };
-
+  const handleCancel = () => {
+    setShowConfirmation(false);
+    setIsLoading(false);
+  };
   const addSkill = () => {
     if (skills.length < 3) setSkills([...skills, { skill: "", level: "" }]);
   };
@@ -358,7 +370,7 @@ const Page = () => {
           <div className="form-alert">
             <p>
               Please ensure all information provided is accurate. Your
-              application will be reviewed by the GDG TIU team.
+              application will be reviewed by the GDG on Campus TIU team.
             </p>
           </div>
 
@@ -366,9 +378,16 @@ const Page = () => {
           <button
             type="button"
             onClick={() => handleSubmit(onSubmit)()}
-            className="submit-btn"
+            className={`submit-btn ${isLoading ? "loading" : ""}`}
+            disabled={isLoading}
           >
-            Submit Application
+            {isLoading ? (
+              <div className="loader-container">
+                <div className="loader"></div>
+              </div> // Loader element
+            ) : (
+              "Submit Application"
+            )}
           </button>
         </form>
       </div>
@@ -386,10 +405,7 @@ const Page = () => {
               <button onClick={confirmSubmit} className="confirm-btn">
                 Yes, Submit
               </button>
-              <button
-                onClick={() => setShowConfirmation(false)}
-                className="cancel-btn"
-              >
+              <button onClick={handleCancel} className="cancel-btn">
                 Cancel
               </button>
             </div>
