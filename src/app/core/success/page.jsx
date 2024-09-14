@@ -2,7 +2,7 @@
 import { BackgroundBeams } from "@/components/ui/background-beams";
 import "./SuccessPage.css"; // Ensure the CSS file is correctly imported
 
-export function SuccessPage() {
+function SuccessPage() {
   return (
     <div className="success-wrapper">
       <div className="success-container">
