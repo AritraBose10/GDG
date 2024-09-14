@@ -1,0 +1,396 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #1b1b1b; /* Dark background */
+  color: #e0e0e0; /* Light text for contrast */
+  line-height: 1.6;
+}
+
+.form-section {
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.form-section h3 {
+  margin-bottom: 1rem;
+  color: #00c9ff; /* Neon blue accent */
+  font-size: 1.4rem;
+  font-weight: 500;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: #e0e0e0; /* Light label text */
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 2px solid #444; /* Darker border for inputs */
+  background-color: rgba(255, 255, 255, 0.05);
+
+  color: #e0e0e0; /* Light text for inputs */
+
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+.heading {
+  font-size: x-large;
+  margin-bottom: 7px;
+}
+textarea {
+  height: 120px;
+  resize: vertical;
+}
+
+.error-message {
+  color: #ff4c4c; /* Bright red error message */
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
+
+.form-alert {
+  background-color: #333; /* Dark alert background */
+  border-left: 4px solid #00c9ff; /* Accent border */
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  font-size: 0.875rem;
+  color: #e0e0e0; /* Light text */
+}
+
+.submit-btn {
+  background-color: #0052cc; /* Neon blue btn */
+  color: white;
+  border: none;
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  width: 100%;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.submit-btn:hover {
+  background-color: #0052ce; /* Slightly darker blue on hover */
+  transform: translateY(-2px);
+}
+
+.skill-input {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.skill-input input,
+.skill-input select {
+  flex: 1;
+}
+
+.add-skill-btn,
+.remove-skill-btn {
+  background-color: #0077ff;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.add-skill-btn:hover,
+.remove-skill-btn:hover {
+  background-color: #00a3cc;
+  transform: translateY(-2px);
+}
+
+.remove-skill-btn {
+  background-color: #ff4c4c;
+  padding: 0.5rem;
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+.remove-skill-btn:hover {
+  background-color: #cc3c3c;
+}
+
+.file-input-label {
+  display: inline-block;
+  padding: 0.75rem 1rem;
+  background-color: #00c851; /* Neon green */
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.file-input-label:hover {
+  background-color: #009933; /* Darker green on hover */
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 200, 81, 0.3); /* Green glow */
+}
+
+.file-input {
+  display: none;
+}
+
+.confirmation-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7); /* Darker overlay */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(10px); /* Stronger blur for techy effect */
+  z-index: 9999; /* Ensure overlay is on top */
+}
+
+.confirmation-dialog {
+  background-color: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  padding: 2rem;
+  border-radius: 10px;
+  text-align: center;
+
+  color: #e0e0e0;
+  z-index: 10000;
+  margin: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.confirmation-dialog h3 {
+  margin-bottom: 1rem;
+  color: #00c9ff; /* Neon blue for title */
+}
+
+.confirmation-dialog p {
+  margin-bottom: 1.5rem;
+  color: #e0e0e0; /* Light text for content */
+}
+
+.confirmation-buttons {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.confirm-btn,
+.cancel-btn {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.confirm-btn {
+  background-color: #00c851; /* Green for confirm */
+  color: white;
+}
+
+.cancel-btn {
+  background-color: #ff4c4c; /* Red for cancel */
+  color: white;
+}
+
+/* Responsive Styles */
+@media (max-width: 430px) {
+  .confirmation-dialog {
+    padding: 1rem;
+    border-radius: 8px; /* Slightly smaller radius for small screens */
+    margin: 0.8rem; /* Smaller margin to fit smaller screens */
+  }
+
+  .confirmation-dialog h3 {
+    font-size: 1.2rem; /* Adjust title size */
+  }
+
+  .confirmation-dialog p {
+    font-size: 0.875rem; /* Adjust content size */
+  }
+
+  .confirm-btn,
+  .cancel-btn {
+    padding: 0.5rem 1rem; /* Smaller button padding */
+    font-size: 0.875rem; /* Smaller font size */
+  }
+}
+
+.role-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.role-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.role-option label {
+  margin: 0;
+  font-size: 16px;
+  color: #e0e0e0;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  .form-container {
+    margin: 1rem;
+  }
+
+  .form-header h2 {
+    font-size: 1.8rem;
+  }
+
+  .form-section h3 {
+    font-size: 1.2rem;
+  }
+
+  .submit-btn {
+    font-size: 1rem;
+    padding: 0.75rem 1.25rem;
+  }
+
+  .file-input-label {
+    padding: 0.5rem 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .form-container {
+    margin: 0.5rem;
+  }
+
+  .form-header h2 {
+    font-size: 1.6rem;
+  }
+
+  .form-section {
+    padding: 1rem;
+  }
+
+  .form-section h3 {
+    font-size: 1rem;
+  }
+
+  .submit-btn {
+    font-size: 0.875rem;
+    padding: 0.5rem 1rem;
+  }
+
+  .file-input-label {
+    padding: 0.5rem;
+  }
+}
+
+@media (max-width: 430px) {
+  .form-header h2 {
+    font-size: 1.4rem;
+  }
+
+  .form-section {
+    padding: 0.75rem;
+  }
+
+  .form-section h3 {
+    font-size: 0.9rem;
+  }
+
+  .submit-btn {
+    font-size: 0.75rem;
+    padding: 0.5rem 0.75rem;
+  }
+
+  .file-input-label {
+    padding: 0.5rem;
+  }
+
+  .role-group {
+    gap: 8px;
+  }
+
+  .role-option label {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 412px) {
+  .form-header h2 {
+    font-size: 1.2rem;
+  }
+
+  .form-section {
+    padding: 0.5rem;
+  }
+
+  .form-section h3 {
+    font-size: 0.8rem;
+  }
+
+  .submit-btn {
+    font-size: 0.75rem;
+    padding: 0.5rem 0.5rem;
+  }
+
+  .file-input-label {
+    padding: 0.4rem;
+  }
+
+  .role-group {
+    gap: 6px;
+  }
+
+  .role-option label {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 460px) {
+  .form-wrapper {
+    padding: 0;
+  }
+
+  .form-container {
+    margin: 0;
+    border-radius: 0;
+  }
+}
+select option {
+  background-color: #0f1c2a; /* Dark background for dropdown options */
+  color: #e0e0e0; /* Light text color for options */
+}
+
+select option:hover {
+  background-color: #1c2b36; /* Slightly lighter background on hover */
+}
