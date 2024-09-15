@@ -21,6 +21,7 @@ const Page = () => {
   const [portfolioLink, setPortfolioLink] = useState("");
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
+  const [selectedRole, setSelectedRole] = useState("");
 
   const onSubmit = async (data) => {
     setIsLoading(true); // Set loading state to true
@@ -284,28 +285,80 @@ const Page = () => {
             </div>
           </div>
 
-          {/* Role Information Section */}
-          <div className="form-section">
-            <h3>Role Information</h3>
-            {/* Role Selection Input */}
+          <div className="form-group">
+            <label htmlFor="roles">Which role are you applying for?</label>
+            <select
+              id="roles"
+              {...register("roles", {
+                required: "Please select a role",
+              })}
+              onChange={(e) => setSelectedRole(e.target.value)} // Handle the change here
+            >
+              <option value="">Select a role</option>
+              <option value="Technical">Technical</option>
+              <option value="Non Technical">Non Technical</option>
+              <option value="Both">Both</option>
+            </select>
+            {errors.roles && (
+              <p className="error-message">{errors.roles.message}</p>
+            )}
+          </div>
+          {(selectedRole === "Technical" || selectedRole === "Both") && (
             <div className="form-group">
-              <label htmlFor="roles">Which role are you applying for?</label>
+              <label htmlFor="technicalDomains">Select your domain</label>
               <select
-                id="roles"
-                {...register("roles", {
-                  required: "Please select a role",
+                id="technicalDomains"
+                {...register("technicalDomains", {
+                  required: "Please select a domain",
                 })}
               >
-                <option value="">Select a role</option>
-                <option value="Technical">Technical</option>
-                <option value="Non Technical">Non Technical</option>
-                <option value="Both">Both</option>
+                <option value="">Select a technical domain</option>
+                <option value="DSA/Competitive Programming">
+                  DSA/Competitive Programming
+                </option>
+                <option value="Cloud and GenAI">Cloud and GenAI</option>
+                <option value="Robotics">Robotics</option>
+                <option value="AI/ML">AI/ML</option>
+                <option value="Web Development">Web Development</option>
+                <option value="UI/UX">UI/UX</option>
+                <option value="Android Development">Android Development</option>
+                <option value="Flutter Development">Flutter Development</option>
               </select>
-              {errors.roles && (
-                <p className="error-message">{errors.roles.message}</p>
+              {errors.technicalDomains && (
+                <p className="error-message">
+                  {errors.technicalDomains.message}
+                </p>
               )}
             </div>
-          </div>
+          )}
+
+          {(selectedRole === "Non Technical" || selectedRole === "Both") && (
+            <div className="form-group">
+              <label htmlFor="nonTechnicalDomains">Select your domain</label>
+              <select
+                id="nonTechnicalDomains"
+                {...register("nonTechnicalDomains", {
+                  required: "Please select a domain",
+                })}
+              >
+                <option value="">Select a non-technical domain</option>
+                <option value="Content Writing">Content Writing</option>
+                <option value="Poster Making">Poster Making</option>
+                <option value="Videography/Photography">
+                  Videography/Photography
+                </option>
+                <option value="Outreach">Outreach</option>
+                <option value="Social Media Handling">
+                  Social Media Handling
+                </option>
+              </select>
+              {errors.nonTechnicalDomains && (
+                <p className="error-message">
+                  {errors.nonTechnicalDomains.message}
+                </p>
+              )}
+            </div>
+          )}
 
           {/* Additional Information Section */}
           <div className="form-section">
