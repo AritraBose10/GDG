@@ -59,7 +59,7 @@ const Page = () => {
             <br />
           </div>
           <div className="font-light text-center md:text-2xl dark:text-neutral-200 py-4 w-[80%]">
-            GDG On Campus. Register today!
+            GDG On Campus TIU. Register today!
           </div>
           <button
             className="shadow-[0_4px_14px_0_rgb(0,0,0,10%)] hover:shadow-[0_6px_20px_rgba(93,93,93,23%)] px-8 py-2 bg-[#fff] text-[#000000] rounded-md font-semibold transition duration-200 ease-linear z-50"
